@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ShieldAlert,
@@ -12,7 +13,7 @@ import {
   Activity,
   Cpu,
   Fingerprint,
-  Zap
+  Zap,
 } from "lucide-react";
 
 interface ProductLink {
@@ -53,15 +54,17 @@ const labProducts: Product[] = [
   {
     id: "anti-y",
     name: "Anti-Y",
-    description: "An advanced anti-distraction tool engineered for deep work. It intelligently blocks algorithmic feeds while retaining essential functionalities.",
+    description:
+      "An advanced anti-distraction tool engineered for deep work. It intelligently blocks algorithmic feeds while retaining essential functionalities.",
     icon: ShieldAlert,
     tags: ["ANTI-DISTRACTION"],
     links: {
-      web: "#",
-      playStore: "#",
+      web: "https://anti-y-web.vercel.app",
+      playStore:
+        "https://play.google.com/store/apps/details?id=com.draxox.antiy",
       apk: "#",
-      youtube: "#",
-      blog: "#"
+      youtube: "https://youtu.be/_WDVcZcsYwM?si=k2Bk-Z6aBsVTQT0I",
+      blog: "#",
     },
     themeColor: {
       primary: "bg-yellow-500",
@@ -69,7 +72,7 @@ const labProducts: Product[] = [
       bg: "group-hover:bg-yellow-500/10",
       glow: "rgba(234, 179, 8, 0.25)",
       border: "group-hover:border-yellow-500/40",
-      neon: "#eab308"
+      neon: "#eab308",
     },
     telemetry: {
       status: "SHIELD: ACTIVE",
@@ -80,22 +83,23 @@ const labProducts: Product[] = [
         "SYS: Initializing algorithm blocks...",
         "NET: Intercepting infinite scrolling hooks...",
         "SHIELD: Deep focus mode established successfully.",
-        "DB: Synced offline configurations."
-      ]
-    }
+        "DB: Synced offline configurations.",
+      ],
+    },
   },
   {
     id: "aham",
     name: "Aham",
-    description: "A secure, agentic AI personal assistant designed to run locally, ensuring total data privacy while managing daily workflows.",
+    description:
+      "A secure, agentic AI personal assistant designed to run locally, ensuring total data privacy while managing daily workflows.",
     icon: BrainCircuit,
     tags: ["SELF-DEVELOPMENT"],
     links: {
-      web: "#",
-      playStore: "#",
+      web: "https://aham-mind.vercel.app",
+      playStore: "https://play.google.com/store/apps/details?id=com.aham.app",
       apk: "#",
-      youtube: "#",
-      blog: "#"
+      youtube: "https://youtu.be/_WDVcZcsYwM?si=k2Bk-Z6aBsVTQT0I",
+      blog: "#",
     },
     themeColor: {
       primary: "bg-blue-600",
@@ -103,7 +107,7 @@ const labProducts: Product[] = [
       bg: "group-hover:bg-blue-500/10",
       glow: "rgba(37, 99, 235, 0.25)",
       border: "group-hover:border-blue-500/40",
-      neon: "#2563eb"
+      neon: "#2563eb",
     },
     telemetry: {
       status: "AGENT: SYNCED",
@@ -114,10 +118,10 @@ const labProducts: Product[] = [
         "SYS: Loading local dynamic LLM weights...",
         "LLM: Quantized 4-bit engine operational.",
         "SEC: Privacy sandbox container locked.",
-        "AGENT: Dynamic scheduler awaiting commands."
-      ]
-    }
-  }
+        "AGENT: Dynamic scheduler awaiting commands.",
+      ],
+    },
+  },
 ];
 
 // Interactive Starfield / Matrix Grid Canvas Background with 3D Warp effect
@@ -156,24 +160,39 @@ function InteractiveBackground({ warpActive }: { warpActive: boolean }) {
 
     // 3D Starfield system for Warp Effect
     const starCount = 350;
-    const stars: { x: number; y: number; z: number; color: string; size: number }[] = [];
+    const stars: {
+      x: number;
+      y: number;
+      z: number;
+      color: string;
+      size: number;
+    }[] = [];
     for (let i = 0; i < starCount; i++) {
       stars.push({
         x: (Math.random() - 0.5) * width * 2,
         y: (Math.random() - 0.5) * height * 2,
         z: Math.random() * width,
-        color: Math.random() > 0.6 
-          ? "rgba(249, 115, 22, " + (Math.random() * 0.8 + 0.2) + ")" // Orange stars
-          : Math.random() > 0.5 
-            ? "rgba(59, 130, 246, " + (Math.random() * 0.8 + 0.2) + ")" // Blue stars
-            : "rgba(255, 255, 255, " + (Math.random() * 0.8 + 0.2) + ")", // White stars
-        size: Math.random() * 2 + 0.5
+        color:
+          Math.random() > 0.6
+            ? "rgba(249, 115, 22, " + (Math.random() * 0.8 + 0.2) + ")" // Orange stars
+            : Math.random() > 0.5
+              ? "rgba(59, 130, 246, " + (Math.random() * 0.8 + 0.2) + ")" // Blue stars
+              : "rgba(255, 255, 255, " + (Math.random() * 0.8 + 0.2) + ")", // White stars
+        size: Math.random() * 2 + 0.5,
       });
     }
 
     // Grid particle details
     const gridSize = 60;
-    const particles: { x: number; y: number; size: number; speedX: number; speedY: number; color: string; alpha: number }[] = [];
+    const particles: {
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      color: string;
+      alpha: number;
+    }[] = [];
     const particleCount = 40;
 
     for (let i = 0; i < particleCount; i++) {
@@ -184,7 +203,7 @@ function InteractiveBackground({ warpActive }: { warpActive: boolean }) {
         speedX: (Math.random() - 0.5) * 0.4,
         speedY: (Math.random() - 0.5) * 0.4,
         color: Math.random() > 0.5 ? "234, 88, 12" : "37, 99, 235", // Orange/Blue themed
-        alpha: Math.random() * 0.5 + 0.1
+        alpha: Math.random() * 0.5 + 0.1,
       });
     }
 
@@ -227,14 +246,20 @@ function InteractiveBackground({ warpActive }: { warpActive: boolean }) {
         });
 
         // Interactive neon light tunnel glow
-        const gradient = ctx.createRadialGradient(width/2, height/2, 10, width/2, height/2, Math.max(width, height) * 0.6);
+        const gradient = ctx.createRadialGradient(
+          width / 2,
+          height / 2,
+          10,
+          width / 2,
+          height / 2,
+          Math.max(width, height) * 0.6,
+        );
         gradient.addColorStop(0, "rgba(5, 5, 10, 0)");
         gradient.addColorStop(0.5, "rgba(234, 88, 12, 0.03)");
         gradient.addColorStop(0.85, "rgba(37, 99, 235, 0.05)");
         gradient.addColorStop(1, "rgba(5, 5, 10, 0.8)");
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, width, height);
-
       } else {
         // Grid HUD ambience
         ctx.fillStyle = "rgba(5, 5, 10, 0.12)";
@@ -316,7 +341,12 @@ function InteractiveBackground({ warpActive }: { warpActive: boolean }) {
     };
   }, [warpActive]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 pointer-events-none z-0"
+    />
+  );
 }
 
 // Custom Sci-Fi Scrambler Text Effect on Hover
@@ -340,7 +370,7 @@ function CipherText({ text, active }: { text: string; active: boolean }) {
             if (index < iterations) return text[index];
             return chars[Math.floor(Math.random() * chars.length)];
           })
-          .join("")
+          .join(""),
       );
 
       iterations += 1 / 2;
@@ -360,12 +390,18 @@ export default function LabProducts() {
   const [isDiagnosticMode, setIsDiagnosticMode] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [timeStr, setTimeStr] = useState("00:00:00");
-  
+
+  const location = useLocation();
+
   // Immersive Sci-Fi Entry Sequence states
-  const [entryPhase, setEntryPhase] = useState<"terminal" | "warp" | "completed">("terminal");
+  const [entryPhase, setEntryPhase] = useState<
+    "terminal" | "warp" | "completed"
+  >(location.state?.skipIntro ? "completed" : "terminal");
   const [warpActive, setWarpActive] = useState(false);
   const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
-  const [authStatus, setAuthStatus] = useState<"awaiting" | "authorizing" | "authorized">("awaiting");
+  const [authStatus, setAuthStatus] = useState<
+    "awaiting" | "authorizing" | "authorized"
+  >("awaiting");
   const [warpProgress, setWarpProgress] = useState(0);
 
   // Keep a futuristic live counter updating on the screen
@@ -388,13 +424,13 @@ export default function LabProducts() {
       "SANDBOX: Isolated airgapped environment verified.",
       "SECURE: Anti-distraction shield proxies pre-loaded.",
       "AGENT: Dynamic offline LLM scheduler awaiting core allocation...",
-      "STATUS: Neural core idle. Awaiting user ignition sequence..."
+      "STATUS: Neural core idle. Awaiting user ignition sequence...",
     ];
     let currentLogIdx = 0;
     const interval = setInterval(() => {
       if (currentLogIdx < logs.length) {
         const nextLog = logs[currentLogIdx];
-        setTerminalLogs(prev => [...prev, nextLog]);
+        setTerminalLogs((prev) => [...prev, nextLog]);
         currentLogIdx++;
       } else {
         clearInterval(interval);
@@ -407,7 +443,7 @@ export default function LabProducts() {
   useEffect(() => {
     if (entryPhase !== "warp") return;
     const interval = setInterval(() => {
-      setWarpProgress(p => {
+      setWarpProgress((p) => {
         if (p >= 100) {
           clearInterval(interval);
           return 100;
@@ -420,7 +456,7 @@ export default function LabProducts() {
 
   const handleInitiateWarp = () => {
     setAuthStatus("authorizing");
-    
+
     // Begin starfield acceleration slightly early for beautiful visual timing
     setTimeout(() => {
       setWarpActive(true);
@@ -466,9 +502,18 @@ export default function LabProducts() {
                 transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
                 className="w-24 h-24 rounded-full border border-orange-500/20 flex items-center justify-center mb-8 relative p-1"
               >
-                <div className="absolute inset-0 rounded-full border-t border-orange-500/60 animate-spin" style={{ animationDuration: '3s' }} />
-                <div className="absolute inset-2 rounded-full border-b border-blue-500/60 animate-spin" style={{ animationDuration: '1.5s' }} />
-                <Fingerprint className="text-orange-500 animate-pulse" size={36} />
+                <div
+                  className="absolute inset-0 rounded-full border-t border-orange-500/60 animate-spin"
+                  style={{ animationDuration: "3s" }}
+                />
+                <div
+                  className="absolute inset-2 rounded-full border-b border-blue-500/60 animate-spin"
+                  style={{ animationDuration: "1.5s" }}
+                />
+                <Fingerprint
+                  className="text-orange-500 animate-pulse"
+                  size={36}
+                />
               </motion.div>
 
               <h1 className="text-lg md:text-xl font-mono text-center tracking-[0.2em] font-extrabold text-white mb-2 uppercase">
@@ -493,7 +538,13 @@ export default function LabProducts() {
                     className="flex gap-2 leading-relaxed"
                   >
                     <span className="text-orange-500">❯</span>
-                    <span className={(log && log.startsWith("STATUS")) ? "text-green-400 font-bold" : "text-slate-300"}>
+                    <span
+                      className={
+                        log && log.startsWith("STATUS")
+                          ? "text-green-400 font-bold"
+                          : "text-slate-300"
+                      }
+                    >
                       {log}
                     </span>
                   </motion.div>
@@ -512,15 +563,17 @@ export default function LabProducts() {
                 disabled={authStatus !== "awaiting"}
                 whileHover={{ scale: authStatus === "awaiting" ? 1.02 : 1 }}
                 whileTap={{ scale: authStatus === "awaiting" ? 0.98 : 1 }}
-                className={`w-full py-4 px-6 rounded-2xl font-mono text-xs md:text-sm tracking-[0.1em] transition-all duration-500 flex items-center justify-center gap-3 relative overflow-hidden group ${
-                  authStatus === "awaiting"
+                className={`w-full py-4 px-6 rounded-2xl font-mono text-xs md:text-sm tracking-[0.1em] transition-all duration-500 flex items-center justify-center gap-3 relative overflow-hidden group ${authStatus === "awaiting"
                     ? "bg-orange-600 hover:bg-orange-500 text-white shadow-[0_0_25px_rgba(234,88,12,0.3)] hover:shadow-[0_0_35px_rgba(234,88,12,0.5)] border border-orange-400/20"
                     : "bg-[#13151C] border border-white/5 text-slate-400 cursor-not-allowed"
-                }`}
+                  }`}
               >
                 {authStatus === "awaiting" && (
                   <>
-                    <Zap className="text-white group-hover:scale-125 transition-transform" size={16} />
+                    <Zap
+                      className="text-white group-hover:scale-125 transition-transform"
+                      size={16}
+                    />
                     <span>INITIALIZE QUANTUM TUNNEL</span>
                   </>
                 )}
@@ -533,7 +586,9 @@ export default function LabProducts() {
                 {authStatus === "authorized" && (
                   <>
                     <div className="w-4 h-4 rounded-full bg-green-500 animate-ping" />
-                    <span className="text-green-400 font-bold">DESCENT AUTHORIZED</span>
+                    <span className="text-green-400 font-bold">
+                      DESCENT AUTHORIZED
+                    </span>
                   </>
                 )}
               </motion.button>
@@ -556,10 +611,17 @@ export default function LabProducts() {
             <div className="max-w-md w-full flex flex-col items-center relative z-10">
               <motion.div
                 animate={{ scale: [1, 1.15, 1], rotate: [0, 18, -18, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.5,
+                  ease: "easeInOut",
+                }}
                 className="mb-8"
               >
-                <Cpu size={56} className="text-orange-500 drop-shadow-[0_0_25px_rgba(234,88,12,0.8)] animate-pulse" />
+                <Cpu
+                  size={56}
+                  className="text-orange-500 drop-shadow-[0_0_25px_rgba(234,88,12,0.8)] animate-pulse"
+                />
               </motion.div>
 
               <h2 className="text-xl md:text-2xl font-mono text-center font-extrabold text-orange-500 tracking-[0.25em] uppercase mb-4 animate-pulse">
@@ -609,43 +671,53 @@ export default function LabProducts() {
               {/* Diagnostic Mode Toggle Trigger */}
               <button
                 onClick={() => setIsDiagnosticMode(!isDiagnosticMode)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl border font-mono text-xs tracking-wider transition-all duration-300 ${
-                  isDiagnosticMode 
-                    ? "bg-orange-500/10 border-orange-500/50 text-orange-400 shadow-[0_0_15px_rgba(234,88,12,0.2)]" 
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl border font-mono text-xs tracking-wider transition-all duration-300 ${isDiagnosticMode
+                    ? "bg-orange-500/10 border-orange-500/50 text-orange-400 shadow-[0_0_15px_rgba(234,88,12,0.2)]"
                     : "bg-[#0F1117]/80 border-white/10 text-slate-300 hover:border-orange-500/30"
-                }`}
+                  }`}
               >
-                <Terminal size={14} className={isDiagnosticMode ? "animate-pulse" : ""} />
-                {isDiagnosticMode ? "DIAGNOSTIC_MODE: ENABLED" : "ENGAGE DIAGNOSTICS"}
+                <Terminal
+                  size={14}
+                  className={isDiagnosticMode ? "animate-pulse" : ""}
+                />
+                {isDiagnosticMode
+                  ? "DIAGNOSTIC_MODE: ENABLED"
+                  : "ENGAGE DIAGNOSTICS"}
               </button>
             </div>
 
             {/* Section Header */}
             <div className="flex flex-col items-center text-center mb-16 md:mb-20">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
                 className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6"
               >
                 <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                <span className="text-[10px] font-mono uppercase tracking-widest text-slate-300 font-medium">BODHON RESEARCH LAB</span>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-slate-300 font-medium">
+                  BODHON RESEARCH LAB
+                </span>
               </motion.div>
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight font-sans"
               >
-                Our Labs & <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Innovations</span>
+                Our Labs &{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+                  Innovations
+                </span>
               </motion.h2>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="mt-4 text-slate-400 max-w-2xl mx-auto text-base md:text-lg px-4"
               >
-                Unveiling state-of-the-art airgapped software, intelligent neural proxies, and high-performance offline environments.
+                Unveiling state-of-the-art airgapped software, intelligent
+                neural proxies, and high-performance offline environments.
               </motion.p>
             </div>
 
@@ -666,10 +738,18 @@ export default function LabProducts() {
                     className={`group relative p-6 sm:p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] bg-[#0F1117]/90 backdrop-blur-2xl border border-white/5 ${product.themeColor.border} transition-all duration-500 flex flex-col h-full shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden`}
                   >
                     {/* Glowing Sci-Fi Corner Brackets */}
-                    <div className={`absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/10 group-hover:border-${product.id === "anti-y" ? "yellow-500" : "blue-500"} transition-colors duration-500`} />
-                    <div className={`absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/10 group-hover:border-${product.id === "anti-y" ? "yellow-500" : "blue-500"} transition-colors duration-500`} />
-                    <div className={`absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/10 group-hover:border-${product.id === "anti-y" ? "yellow-500" : "blue-500"} transition-colors duration-500`} />
-                    <div className={`absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/10 group-hover:border-${product.id === "anti-y" ? "yellow-500" : "blue-500"} transition-colors duration-500`} />
+                    <div
+                      className={`absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/10 group-hover:border-${product.id === "anti-y" ? "yellow-500" : "blue-500"} transition-colors duration-500`}
+                    />
+                    <div
+                      className={`absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-white/10 group-hover:border-${product.id === "anti-y" ? "yellow-500" : "blue-500"} transition-colors duration-500`}
+                    />
+                    <div
+                      className={`absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-white/10 group-hover:border-${product.id === "anti-y" ? "yellow-500" : "blue-500"} transition-colors duration-500`}
+                    />
+                    <div
+                      className={`absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-white/10 group-hover:border-${product.id === "anti-y" ? "yellow-500" : "blue-500"} transition-colors duration-500`}
+                    />
 
                     {/* Laser scanline vertical sweeping effect on hover */}
                     <AnimatePresence>
@@ -678,11 +758,15 @@ export default function LabProducts() {
                           initial={{ y: "-100%" }}
                           animate={{ y: "100%" }}
                           exit={{ opacity: 0 }}
-                          transition={{ repeat: Infinity, duration: 2.2, ease: "linear" }}
+                          transition={{
+                            repeat: Infinity,
+                            duration: 2.2,
+                            ease: "linear",
+                          }}
                           className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent blur-[2px] pointer-events-none z-10"
                           style={{
                             boxShadow: `0 0 12px ${product.themeColor.neon}`,
-                            background: `linear-gradient(to right, transparent, ${product.themeColor.neon}, transparent)`
+                            background: `linear-gradient(to right, transparent, ${product.themeColor.neon}, transparent)`,
                           }}
                         />
                       )}
@@ -692,29 +776,35 @@ export default function LabProducts() {
                     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
 
                     {/* Subtle hover glow inside the card based on theme color */}
-                    <div 
+                    <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem] md:rounded-[2.5rem] pointer-events-none"
-                      style={{ background: `radial-gradient(circle at 10% 10%, ${product.themeColor.glow}, transparent 65%)` }}
+                      style={{
+                        background: `radial-gradient(circle at 10% 10%, ${product.themeColor.glow}, transparent 65%)`,
+                      }}
                     />
 
                     {/* Top Header Row within card */}
                     <div className="relative z-10 flex-grow">
                       <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6 md:mb-8">
                         {/* Glowing tech-themed Icon container */}
-                        <div 
+                        <div
                           className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-[#1A1C23] border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg relative"
-                          style={{ boxShadow: `0 0 20px ${product.themeColor.glow}` }}
+                          style={{
+                            boxShadow: `0 0 20px ${product.themeColor.glow}`,
+                          }}
                         >
                           <Icon className={product.themeColor.text} size={28} />
                           {/* Interactive blinking pulse dot inside icon */}
-                          <span className={`absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full ${product.themeColor.primary} animate-pulse`} />
+                          <span
+                            className={`absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full ${product.themeColor.primary} animate-pulse`}
+                          />
                         </div>
 
                         {/* Meta Tech Tag */}
                         <div className="flex flex-wrap justify-start sm:justify-end gap-2 max-w-full">
                           {product.tags.map((tag) => (
-                            <span 
-                              key={tag} 
+                            <span
+                              key={tag}
                               className={`px-3 py-1 text-[9px] font-mono tracking-widest uppercase border border-white/10 rounded-md bg-[#13151D] text-slate-300 font-bold`}
                             >
                               {tag}
@@ -722,9 +812,11 @@ export default function LabProducts() {
                           ))}
                         </div>
                       </div>
-                      
+
                       {/* Dynamic Shuffling Scrambler Title */}
-                      <h3 className={`text-2xl md:text-3xl font-bold mb-3 md:mb-4 tracking-tight transition-colors duration-300 ${product.themeColor.text.replace('text-', 'group-hover:text-')}`}>
+                      <h3
+                        className={`text-2xl md:text-3xl font-bold mb-3 md:mb-4 tracking-tight transition-colors duration-300 ${product.themeColor.text.replace("text-", "group-hover:text-")}`}
+                      >
                         <CipherText text={product.name} active={isHovered} />
                       </h3>
                       <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6 md:mb-8">
@@ -738,15 +830,21 @@ export default function LabProducts() {
                         </div>
                         <div className="flex justify-between border-b border-white/5 pb-1.5">
                           <span>SECURE_LINK:</span>
-                          <span className={product.themeColor.text}>{product.telemetry.securityHash}</span>
+                          <span className={product.themeColor.text}>
+                            {product.telemetry.securityHash}
+                          </span>
                         </div>
                         <div className="flex justify-between">
                           <span>STATUS:</span>
-                          <span className="text-green-400 font-bold">{product.telemetry.status}</span>
+                          <span className="text-green-400 font-bold">
+                            {product.telemetry.status}
+                          </span>
                         </div>
                         <div className="flex justify-between">
                           <span>{product.telemetry.metricLabel}:</span>
-                          <span className="text-white font-bold">{product.telemetry.metricValue}</span>
+                          <span className="text-white font-bold">
+                            {product.telemetry.metricValue}
+                          </span>
                         </div>
                       </div>
 
@@ -766,8 +864,12 @@ export default function LabProducts() {
                             </div>
                             {product.telemetry.logStreams.map((log, logIdx) => (
                               <div key={logIdx} className="flex gap-2">
-                                <span className="text-orange-500/40">[{logIdx + 1}]</span>
-                                <span className="text-slate-400 select-all">{log}</span>
+                                <span className="text-orange-500/40">
+                                  [{logIdx + 1}]
+                                </span>
+                                <span className="text-slate-400 select-all">
+                                  {log}
+                                </span>
                               </div>
                             ))}
                           </motion.div>
@@ -777,65 +879,77 @@ export default function LabProducts() {
 
                     <div className="relative z-10 mt-auto">
                       {/* Action Bar Divider */}
-                      <div className={`h-px w-full bg-gradient-to-r from-white/10 to-transparent mb-6 md:mb-8`} />
+                      <div
+                        className={`h-px w-full bg-gradient-to-r from-white/10 to-transparent mb-6 md:mb-8`}
+                      />
 
                       {/* Action Bar - Links & Buttons */}
                       <div className="flex flex-col gap-6">
-                        
                         {/* Primary Actions (Left) */}
                         <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
-                          <a 
-                            href={product.links.web} 
+                          <a
+                            href={product.links.web}
                             className={`w-full sm:flex-1 flex items-center justify-center gap-2 px-6 py-3.5 ${product.themeColor.primary} hover:brightness-110 text-white text-sm font-bold rounded-xl transition-all shadow-lg active:scale-95`}
                           >
                             <Globe size={18} />
                             Live Preview
                           </a>
-                          
-                          <a 
-                            href={product.links.playStore} 
+
+                          <a
+                            href={product.links.playStore}
                             className="w-full sm:flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1A1C23] hover:bg-[#252833] border border-white/10 text-white text-sm font-semibold rounded-xl transition-all active:scale-95 group/play"
                           >
-                            <Play size={18} className="text-[#34A853] fill-[#34A853] group-hover/play:text-[#4285F4] group-hover/play:fill-[#4285F4] transition-colors" />
+                            <Play
+                              size={18}
+                              className="text-[#34A853] fill-[#34A853] group-hover/play:text-[#4285F4] group-hover/play:fill-[#4285F4] transition-colors"
+                            />
                             Play Store
                           </a>
                         </div>
 
                         {/* Secondary Actions (Right) - Icon Only */}
                         <div className="flex items-center justify-center sm:justify-end gap-3 sm:gap-4 pb-2">
-                          <a 
-                            href={product.links.apk} 
+                          <a
+                            href={product.links.apk}
+                            download={product.name}
                             title="Download APK"
-                            className={`p-3 bg-[#1A1C23] border border-white/10 text-slate-400 rounded-xl transition-all group/icon ${product.themeColor.bg.replace('group-hover:', 'hover:')} ${product.themeColor.text.replace('text-', 'hover:text-')}`}
+                            className={`p-3 bg-[#1A1C23] border border-white/10 text-slate-400 rounded-xl transition-all group/icon ${product.themeColor.bg.replace("group-hover:", "hover:")} ${product.themeColor.text.replace("text-", "hover:text-")}`}
                           >
-                            <Download size={20} className="group-hover/icon:scale-110 transition-transform" />
+                            <Download
+                              size={20}
+                              className="group-hover/icon:scale-110 transition-transform"
+                            />
                           </a>
-                          <a 
-                            href={product.links.youtube} 
+                          <a
+                            href={product.links.youtube}
                             title="Watch Demo"
                             className={`p-3 bg-[#1A1C23] border border-white/10 text-slate-400 rounded-xl transition-all group/icon hover:bg-[#FF0000]/10 hover:text-[#FF0000]`}
                           >
-                            <Youtube size={20} className="group-hover/icon:scale-110 transition-transform fill-transparent group-hover/icon:fill-[#FF0000]/20" />
+                            <Youtube
+                              size={20}
+                              className="group-hover/icon:scale-110 transition-transform fill-transparent group-hover/icon:fill-[#FF0000]/20"
+                            />
                           </a>
-                          <a 
-                            href={product.links.blog} 
+                          <Link
+                            to={`/case-study/${product.id}`}
                             title="Read Case Study"
                             className={`p-3 bg-[#1A1C23] border border-white/10 text-slate-400 rounded-xl transition-all group/icon hover:bg-blue-500/10 hover:text-blue-500`}
                           >
-                            <BookOpen size={20} className="group-hover/icon:scale-110 transition-transform" />
-                          </a>
+                            <BookOpen
+                              size={20}
+                              className="group-hover/icon:scale-110 transition-transform"
+                            />
+                          </Link>
                         </div>
-
                       </div>
                     </div>
-
                   </motion.div>
-                )
+                );
               })}
             </div>
 
             {/* Footer Note */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -852,5 +966,3 @@ export default function LabProducts() {
     </section>
   );
 }
-
-
