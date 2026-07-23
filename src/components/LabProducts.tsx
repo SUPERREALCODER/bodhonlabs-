@@ -62,7 +62,7 @@ const labProducts: Product[] = [
       web: "https://anti-y-web.vercel.app",
       playStore:
         "https://play.google.com/store/apps/details?id=com.draxox.antiy",
-      apk: "#",
+      apk: "https://github.com/bodhontech/anti-y-web/releases/download/latest/app.apk",
       youtube: "https://youtu.be/_WDVcZcsYwM?si=k2Bk-Z6aBsVTQT0I",
       blog: "#",
     },
