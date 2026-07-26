@@ -13,7 +13,52 @@ const labProductsInfo: Record<string, any> = {
       bg: "bg-yellow-500",
       neon: "#eab308",
     },
-    mission: "Establish an unbreakable cognitive shield against algorithmic manipulation.",
+    mission: "Reclaim human attention by replacing endless algorithmic scrolling with intentional, topic-driven learning.",
+    sections: {
+      summary: {
+        title: "1.0 Executive Summary",
+        content: [
+          "Anti-Y is an attention-first digital learning platform built for people who want to escape digital distraction and learn with purpose. Instead of maximizing engagement through endless recommendations, the platform organizes educational videos, podcasts, articles, and documentaries around a single topic. Every learning session is designed to help users explore subjects deeply, compare multiple perspectives, and build lasting understanding rather than consuming content passively."
+        ]
+      },
+      problem: {
+        title: "2.0 The Problem",
+        intro: "Today's digital platforms compete for attention, not understanding. Infinite scrolling, personalized recommendation loops, and constant notifications encourage passive consumption while reducing focus and critical thinking. As information becomes more abundant, meaningful learning becomes increasingly difficult. Anti-Y was created to challenge this model by putting intentional learning ahead of engagement metrics.",
+        phases: [
+          {
+            title: "Phase I: Attention Recovery",
+            desc: "Remove the distractions created by endless feeds and algorithm-driven content, allowing users to regain control over how they spend their digital time."
+          },
+          {
+            title: "Phase II: Structured Learning",
+            desc: "Collect videos, podcasts, articles, and documentaries into one organized learning path so every resource contributes to a deeper understanding of the chosen topic."
+          },
+          {
+            title: "Phase III: Critical Thinking",
+            desc: "Present multiple viewpoints instead of reinforcing a single narrative, encouraging users to compare ideas, think independently, and make informed decisions."
+          }
+        ],
+        outro: "Rather than encouraging binge consumption, Anti-Y creates an environment where every interaction has a clear purpose. Its distraction-free interface keeps users focused while transforming ordinary screen time into a structured learning experience that improves knowledge retention and long-term curiosity."
+      },
+      impact: {
+        title: "3.0 Platform Impact",
+        cards: [
+          {
+            label: "4 Learning Formats",
+            value: "Videos • Podcasts • Articles • Documentaries"
+          },
+          {
+            label: "1 Focused Topic",
+            value: "Every session explores one subject without distractions."
+          },
+          {
+            label: "Multiple Perspectives",
+            value: "Balanced knowledge instead of algorithmic bias."
+          }
+        ],
+        outro: "Anti-Y helps students, professionals, researchers, and lifelong learners reclaim control over their digital attention. By replacing endless scrolling with focused exploration, the platform improves concentration, strengthens critical thinking, reduces digital fatigue, and makes every minute of screen time more productive"
+      }
+    }
   },
   "aham": {
     name: "Aham",
@@ -24,6 +69,44 @@ const labProductsInfo: Record<string, any> = {
       neon: "#2563eb",
     },
     mission: "Deploy a localized, privacy-first agentic entity to optimize personal workflows.",
+    sections: {
+      summary: {
+        title: "1.0 Executive Summary",
+        content: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+        ]
+      },
+      problem: {
+        title: "2.0 Architecture & Implementation",
+        intro: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
+        phases: [
+          {
+            title: "Phase I: Quantum Core Initialization",
+            desc: "At vero eos et accusamus et iusto odio dignissimos ducimus."
+          },
+          {
+            title: "Phase II: Neural Pathway Calibration",
+            desc: "Qui blanditiis praesentium voluptatum deleniti atque corrupti quos."
+          },
+          {
+            title: "Phase III: System Optimization",
+            desc: "Dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+          }
+        ],
+        outro: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
+      },
+      impact: {
+        title: "3.0 Results & Telemetry",
+        cards: [
+          { label: "EFFICIENCY", value: "+340%" },
+          { label: "LATENCY", value: "12ms" },
+          { label: "DATA LOSS", value: "0.00%" }
+        ],
+        outro: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+        note: "Note: The above telemetry data represents controlled environment tests. Real-world performance may vary based on local neural density."
+      }
+    }
   },
 };
 
@@ -149,7 +232,7 @@ export default function CaseStudy() {
           </p>
         </motion.div>
 
-        {/* Content Body - Lorem Ipsum structured as a technical document */}
+        {/* Content Body - Declassified case study info structured as a technical document */}
         <motion.article 
           initial={{ opacity: 0, y: 30 }} 
           animate={{ opacity: 1, y: 0 }} 
@@ -163,53 +246,56 @@ export default function CaseStudy() {
             
             <h2 className="flex items-center gap-3">
               <Terminal size={24} className={product.themeColor.primary} />
-              1.0 Executive Summary
+              {product.sections?.summary?.title || "1.0 Executive Summary"}
             </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-            </p>
+            {product.sections?.summary?.content?.map((paragraph: string, idx: number) => (
+              <p key={idx}>{paragraph}</p>
+            )) || (
+              <p>No content available.</p>
+            )}
 
             <h2 className="flex items-center gap-3 mt-12">
               <Activity size={24} className={product.themeColor.primary} />
-              2.0 Architecture & Implementation
+              {product.sections?.problem?.title || "2.0 Architecture & Implementation"}
             </h2>
             <p>
-              Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+              {product.sections?.problem?.intro}
             </p>
-            <ul className="list-disc list-outside pl-5 space-y-2 mt-4 font-mono text-sm">
-              <li>Phase I: <strong>Quantum Core Initialization</strong> - At vero eos et accusamus et iusto odio dignissimos ducimus.</li>
-              <li>Phase II: <strong>Neural Pathway Calibration</strong> - Qui blanditiis praesentium voluptatum deleniti atque corrupti quos.</li>
-              <li>Phase III: <strong>System Optimization</strong> - Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</li>
-            </ul>
+            {product.sections?.problem?.phases && (
+              <ul className="list-disc list-outside pl-5 space-y-3 mt-4 font-mono text-sm">
+                {product.sections.problem.phases.map((phase: any, idx: number) => (
+                  <li key={idx}>
+                    <strong>{phase.title}</strong>: {phase.desc}
+                  </li>
+                ))}
+              </ul>
+            )}
             <p className="mt-6">
-              Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+              {product.sections?.problem?.outro}
             </p>
 
             <h2 className="flex items-center gap-3 mt-12">
               <ShieldAlert size={24} className={product.themeColor.primary} />
-              3.0 Results & Telemetry
+              {product.sections?.impact?.title || "3.0 Results & Telemetry"}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              {[
-                { label: "EFFICIENCY", value: "+340%" },
-                { label: "LATENCY", value: "12ms" },
-                { label: "DATA LOSS", value: "0.00%" }
-              ].map((stat, i) => (
-                <div key={i} className="bg-black/40 border border-white/5 rounded-xl p-4 text-center">
-                  <div className="text-[10px] font-mono text-slate-500 mb-1">{stat.label}</div>
-                  <div className={`text-2xl font-bold font-mono ${product.themeColor.primary}`}>{stat.value}</div>
+              {product.sections?.impact?.cards?.map((stat: any, i: number) => (
+                <div key={i} className="bg-black/40 border border-white/5 rounded-xl p-5 text-center flex flex-col justify-center items-center">
+                  <div className="text-[10px] font-mono text-slate-500 mb-2 tracking-wider uppercase">{stat.label}</div>
+                  <div className={`font-semibold ${product.themeColor.primary} ${stat.value.length > 15 ? "text-xs md:text-sm font-sans mt-1 leading-normal" : "text-xl md:text-2xl font-mono leading-none"}`}>
+                    {stat.value}
+                  </div>
                 </div>
-              ))}
+              )) || null}
             </div>
             <p>
-              Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+              {product.sections?.impact?.outro}
             </p>
-            <p>
-              <em>Note: The above telemetry data represents controlled environment tests. Real-world performance may vary based on local neural density.</em>
-            </p>
+            {product.sections?.impact?.note && (
+              <p>
+                <em>{product.sections.impact.note}</em>
+              </p>
+            )}
           </div>
         </motion.article>
       </div>
