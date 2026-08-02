@@ -64,50 +64,58 @@ const labProductsInfo: Record<string, any> = {
     name: "Aham",
     icon: BrainCircuit,
     themeColor: {
-      primary: "text-blue-500",
-      bg: "bg-blue-600",
-      neon: "#2563eb",
+      primary: "text-blue-400",
+      bg: "bg-blue-500",
+      neon: "#3b82f6",
     },
-    mission: "Deploy a localized, privacy-first agentic entity to optimize personal workflows.",
+    mission: "Optimize the human operating system through offline-first self-inquiry, biometric awareness, and private, agentic feedback.",
     sections: {
       summary: {
         title: "1.0 Executive Summary",
         content: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+          "Aham (अहम् — Sanskrit for 'I Am') is a private, offline-first daily operating system built for solo engineers and high-performers who take inner development as seriously as technical execution. Rather than outsourcing personal growth to cloud-hosted trackers and subscription models, Aham runs entirely on the user's local machine.",
+          "By integrating structured journaling, mood and sleep analytics, biometric tracking, and a rule-based offline Insight Engine, the platform empowers users to understand their internal states, identify productivity patterns, and optimize their daily cognitive output without compromising privacy."
         ]
       },
       problem: {
-        title: "2.0 Architecture & Implementation",
-        intro: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
+        title: "2.0 The Problem",
+        intro: "Modern personal development tools compete for user data, not actual transformation. Cloud-hosted mood trackers, goal planners, and wellness apps harvest private journals and biometrics to train models, build ads profiles, and keep users hooked through performative streak metrics. Genuine, quiet self-inquiry requires absolute isolation and security, but current tools prioritize server-side convenience and vendor lock-in. Aham was built to provide a local sanctuary, putting data sovereignty and actionable, offline introspection ahead of engagement metrics.",
         phases: [
           {
-            title: "Phase I: Quantum Core Initialization",
-            desc: "At vero eos et accusamus et iusto odio dignissimos ducimus."
+            title: "Phase I: Cognitive & Biometric Union",
+            desc: "Consolidate daily journal entries, qualitative mood indicators, sleep metrics, and biometric health metrics (like brainwave patterns and stress markers) into a unified, secure database."
           },
           {
-            title: "Phase II: Neural Pathway Calibration",
-            desc: "Qui blanditiis praesentium voluptatum deleniti atque corrupti quos."
+            title: "Phase II: Offline Reflection Engine",
+            desc: "Process the user's state against priority rules and heuristics locally, returning actionable, zero-latency directives and immediate self-inquiry prompts without any network calls."
           },
           {
-            title: "Phase III: System Optimization",
-            desc: "Dolores et quas molestias excepturi sint occaecati cupiditate non provident."
+            title: "Phase III: Localized Agentic Coaching",
+            desc: "Integrate secure, on-device AI coaching to help users decode behavioral patterns, reconcile cognitive friction, and plan future goals in a completely private environment."
           }
         ],
-        outro: "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
+        outro: "Instead of encouraging streak-chasing or server-side dependency, Aham establishes an isolated sandbox for self-awareness. Its completely offline, private architecture guarantees that thoughts, dreams, and neurological data remain under the user's direct custody, transforming the daily checkout into a sanctuary for clear thinking and long-term cognitive resilience."
       },
       impact: {
-        title: "3.0 Results & Telemetry",
+        title: "3.0 Platform Impact",
         cards: [
-          { label: "EFFICIENCY", value: "+340%" },
-          { label: "LATENCY", value: "12ms" },
-          { label: "DATA LOSS", value: "0.00%" }
+          {
+            label: "5 Core Modules",
+            value: "Daily • Targets • Insights • Neuro Core • Neuro Coach"
+          },
+          {
+            label: "100% Offline Privacy",
+            value: "Local SQLite database with zero external server dependencies."
+          },
+          {
+            label: "Insight Engine",
+            value: "Heuristic analysis and local Gemini guidance."
+          }
         ],
-        outro: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
-        note: "Note: The above telemetry data represents controlled environment tests. Real-world performance may vary based on local neural density."
+        outro: "Aham helps developers, professionals, and creators reclaim their mental clarity and cognitive privacy. By combining self-inquiry with offline analytics, the platform strengthens focus, promotes emotional calibration, and facilitates structured personal growth in an era of continuous digital surveillance."
       }
     }
-  },
+  }
 };
 
 function GridBackground({ color }: { color: string }) {
