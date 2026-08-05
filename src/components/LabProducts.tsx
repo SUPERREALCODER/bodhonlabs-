@@ -97,7 +97,7 @@ const labProducts: Product[] = [
     links: {
       web: "https://aham-mind.vercel.app",
       playStore: "https://play.google.com/store/apps/details?id=com.aham.app",
-      apk: "https://github.com/SUPERREALCODER/Aham/releases/latest/download/app-release.apk",
+      apk: "https://github.com/SUPERREALCODER/Aham-Releases/releases/latest/download/app-release.apk",
       youtube: "https://youtu.be/_WDVcZcsYwM?si=k2Bk-Z6aBsVTQT0I",
       blog: "#",
     },
