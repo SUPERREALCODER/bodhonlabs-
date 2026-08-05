@@ -563,11 +563,10 @@ export default function LabProducts() {
                 disabled={authStatus !== "awaiting"}
                 whileHover={{ scale: authStatus === "awaiting" ? 1.02 : 1 }}
                 whileTap={{ scale: authStatus === "awaiting" ? 0.98 : 1 }}
-                className={`w-full py-4 px-6 rounded-2xl font-mono text-xs md:text-sm tracking-[0.1em] transition-all duration-500 flex items-center justify-center gap-3 relative overflow-hidden group ${
-                  authStatus === "awaiting"
-                    ? "bg-orange-600 hover:bg-orange-500 text-white shadow-[0_0_25px_rgba(234,88,12,0.3)] hover:shadow-[0_0_35px_rgba(234,88,12,0.5)] border border-orange-400/20"
-                    : "bg-[#13151C] border border-white/5 text-slate-400 cursor-not-allowed"
-                }`}
+                className={`w-full py-4 px-6 rounded-2xl font-mono text-xs md:text-sm tracking-[0.1em] transition-all duration-500 flex items-center justify-center gap-3 relative overflow-hidden group ${authStatus === "awaiting"
+                  ? "bg-orange-600 hover:bg-orange-500 text-white shadow-[0_0_25px_rgba(234,88,12,0.3)] hover:shadow-[0_0_35px_rgba(234,88,12,0.5)] border border-orange-400/20"
+                  : "bg-[#13151C] border border-white/5 text-slate-400 cursor-not-allowed"
+                  }`}
               >
                 {authStatus === "awaiting" && (
                   <>
@@ -672,11 +671,10 @@ export default function LabProducts() {
               {/* Diagnostic Mode Toggle Trigger */}
               <button
                 onClick={() => setIsDiagnosticMode(!isDiagnosticMode)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl border font-mono text-xs tracking-wider transition-all duration-300 ${
-                  isDiagnosticMode
-                    ? "bg-orange-500/10 border-orange-500/50 text-orange-400 shadow-[0_0_15px_rgba(234,88,12,0.2)]"
-                    : "bg-[#0F1117]/80 border-white/10 text-slate-300 hover:border-orange-500/30"
-                }`}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl border font-mono text-xs tracking-wider transition-all duration-300 ${isDiagnosticMode
+                  ? "bg-orange-500/10 border-orange-500/50 text-orange-400 shadow-[0_0_15px_rgba(234,88,12,0.2)]"
+                  : "bg-[#0F1117]/80 border-white/10 text-slate-300 hover:border-orange-500/30"
+                  }`}
               >
                 <Terminal
                   size={14}
@@ -892,6 +890,7 @@ export default function LabProducts() {
                           <a
                             href={product.links.web}
                             className={`w-full sm:flex-1 flex items-center justify-center gap-2 px-6 py-3.5 ${product.themeColor.primary} hover:brightness-110 text-white text-sm font-bold rounded-xl transition-all shadow-lg active:scale-95`}
+                            target="_blank"
                           >
                             <Globe size={18} />
                             Live Preview
@@ -900,6 +899,7 @@ export default function LabProducts() {
                           <a
                             href={product.links.playStore}
                             className="w-full sm:flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1A1C23] hover:bg-[#252833] border border-white/10 text-white text-sm font-semibold rounded-xl transition-all active:scale-95 group/play"
+                            target="_blank"
                           >
                             <Play
                               size={18}
