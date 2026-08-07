@@ -59,11 +59,11 @@ const labProducts: Product[] = [
     icon: ShieldAlert,
     tags: ["ANTI-DISTRACTION"],
     links: {
-      web: "https://anti-y-web.vercel.app",
+      web: "",
       playStore:
         "https://play.google.com/store/apps/details?id=com.draxox.antiy",
       apk: "https://github.com/bodhontech/anti-y-web/releases/download/latest/app.apk",
-      youtube: "https://youtu.be/_WDVcZcsYwM?si=k2Bk-Z6aBsVTQT0I",
+      youtube: "",
       blog: "#",
     },
     themeColor: {
@@ -95,10 +95,10 @@ const labProducts: Product[] = [
     icon: BrainCircuit,
     tags: ["SELF-DEVELOPMENT"],
     links: {
-      web: "https://aham-mind.vercel.app",
+      web: "",
       playStore: "https://play.google.com/store/apps/details?id=com.aham.app",
       apk: "https://github.com/SUPERREALCODER/Aham-Releases/releases/latest/download/app-release.apk",
-      youtube: "https://youtu.be/_WDVcZcsYwM?si=k2Bk-Z6aBsVTQT0I",
+      youtube: "",
       blog: "#",
     },
     themeColor: {
@@ -887,14 +887,16 @@ export default function LabProducts() {
                       <div className="flex flex-col gap-6">
                         {/* Primary Actions (Left) */}
                         <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
-                          <a
-                            href={product.links.web}
-                            className={`w-full sm:flex-1 flex items-center justify-center gap-2 px-6 py-3.5 ${product.themeColor.primary} hover:brightness-110 text-white text-sm font-bold rounded-xl transition-all shadow-lg active:scale-95`}
-                            target="_blank"
-                          >
-                            <Globe size={18} />
-                            Live Preview
-                          </a>
+                          {product.links.web && (
+                            <a
+                              href={product.links.web}
+                              className={`w-full sm:flex-1 flex items-center justify-center gap-2 px-6 py-3.5 ${product.themeColor.primary} hover:brightness-110 text-white text-sm font-bold rounded-xl transition-all shadow-lg active:scale-95`}
+                              target="_blank"
+                            >
+                              <Globe size={18} />
+                              Live Preview
+                            </a>
+                          )}
 
                           <a
                             href={product.links.playStore}
@@ -922,16 +924,18 @@ export default function LabProducts() {
                               className="group-hover/icon:scale-110 transition-transform"
                             />
                           </a>
-                          <a
-                            href={product.links.youtube}
-                            title="Watch Demo"
-                            className={`p-3 bg-[#1A1C23] border border-white/10 text-slate-400 rounded-xl transition-all group/icon hover:bg-[#FF0000]/10 hover:text-[#FF0000]`}
-                          >
-                            <Youtube
-                              size={20}
-                              className="group-hover/icon:scale-110 transition-transform fill-transparent group-hover/icon:fill-[#FF0000]/20"
-                            />
-                          </a>
+                          {product.links.youtube && (
+                            <a
+                              href={product.links.youtube}
+                              title="Watch Demo"
+                              className={`p-3 bg-[#1A1C23] border border-white/10 text-slate-400 rounded-xl transition-all group/icon hover:bg-[#FF0000]/10 hover:text-[#FF0000]`}
+                            >
+                              <Youtube
+                                size={20}
+                                className="group-hover/icon:scale-110 transition-transform fill-transparent group-hover/icon:fill-[#FF0000]/20"
+                              />
+                            </a>
+                          )}
                           <Link
                             to={`/case-study/${product.id}`}
                             title="Read Case Study"
